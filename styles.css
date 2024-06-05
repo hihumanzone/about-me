@@ -1,17 +1,20 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #121212;
     color: #E0E0E0;
-    margin: 0;
-    padding: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
     overflow: hidden;
     transition: background-image 1s ease;
     background-size: cover;
     background-position: center;
+    padding: 0; /* Remove padding to avoid misalignment */
 }
 
 .profile-container {
@@ -21,6 +24,9 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
+    max-width: 90%; /* Ensure the container is not wider than screen */
+    max-height: 90%; /* Ensure the container is not taller than screen */
+    overflow: auto; /* Allow scrolling if content overflows */
 }
 
 .profile-picture {
@@ -60,13 +66,15 @@ h1, p, .social-links a {
 #musicIndicator {
     position: fixed;
     bottom: 30px;
-    left: 160px; /* Adjust spacing next to the toggle button */
+    left: 160px;
     font-size: 16px;
     font-weight: bold;
-    color: #4caf50; /* Green color for "Music Playing" */
     transition: color 0.3s ease;
 }
 
 #musicIndicator.music-paused {
-    color: #f44336; /* Red color for "Music Paused" */
+    color: #f44336;
+}
+#musicIndicator.music-playing {
+    color: #4caf50;
 }
