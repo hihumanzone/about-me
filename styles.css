@@ -20,7 +20,7 @@ body {
 .profile-container {
     background: rgba(51, 51, 51, 0.8);
     backdrop-filter: blur(10px);
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -33,7 +33,11 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 4px solid #666;
+    border: 0px solid transparent; /* Transparent border to maintain size */
+    padding: 5px; /* Padding to create space for the blur effect */
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
 }
 
 h1, p, .social-links a {
@@ -57,24 +61,46 @@ h1, p, .social-links a {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #444;
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
     color: white;
     border: none;
-    border-radius: 5px;
+    transition: color 0.3s ease, background 0.3s ease; /* Smooth transition */
+}
+
+#toggleMusic:hover {
+    background: rgba(255, 255, 255, 0.1); /* Slight white tint on hover */
 }
 
 #musicIndicator {
     position: fixed;
     bottom: 30px;
-    left: 160px;
+    right: 30px;
+    display: flex;
+    align-items: center;
     font-size: 16px;
     font-weight: bold;
-    transition: color 0.3s ease;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    transition: color 0.3s ease, background 0.3s ease; /* Smooth transition */
+    border: 2px solid #FFF; /* White border to distinguish it */
 }
 
 #musicIndicator.music-paused {
     color: #f44336;
+    background: rgba(255, 0, 0, 0.2); /* Slight red tint for paused */
 }
 #musicIndicator.music-playing {
     color: #4caf50;
+    background: rgba(0, 255, 0, 0.2); /* Slight green tint for playing */
+}
+
+#musicIndicator::before {
+    content: "🎵"; /* Music note icon */
+    margin-right: 10px; /* Space between icon and text */
 }
